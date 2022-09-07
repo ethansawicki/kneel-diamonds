@@ -1,7 +1,5 @@
 import { getSizes, setSize } from "./database.js"
 
-const sizes = getSizes()
-
 document.addEventListener(
     "change",
     (event) => {
@@ -12,6 +10,7 @@ document.addEventListener(
 )
 
 export const DiamondSizes = () => {
+    const sizes = getSizes()
     let html = "<ul>"
 
     // Use .map() for converting objects to <li> elements

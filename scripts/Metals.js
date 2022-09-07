@@ -1,7 +1,4 @@
 import { getMetals, setMetal } from "./database.js"
-import { Orders } from "./Orders.js"
-
-const metals = getMetals()
 
 document.addEventListener(
     "change",
@@ -12,14 +9,8 @@ document.addEventListener(
     }
 )
 
-const foundMetal = metals.find(
-    (metal) => {
-        return metal.id === Orders.metalId
-    }
-)
-const totalCost = foundMetal.price
-
 export const Metals = () => {
+    const metals = getMetals()
     let html = "<ul>"
 
     // This is how you have been converting objects to <li> elements

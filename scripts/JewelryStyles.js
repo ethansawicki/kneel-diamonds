@@ -1,7 +1,5 @@
 import { getStyles, setStyle } from "./database.js"
 
-const styles = getStyles()
-
 document.addEventListener(
     "change",
     (event) => {
@@ -12,6 +10,7 @@ document.addEventListener(
 )
 
 export const JewelryStyles = () => {
+    const styles = getStyles()
     let html = "<ul>"
 
     // Use .map() for converting objects to <li> elements
