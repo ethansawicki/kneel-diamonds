@@ -1,8 +1,15 @@
-import { getOrders } from "./database.js"
+import { getOrders, getMetals } from "./database.js"
+
+const metals = getMetals()
+
 
 const buildOrderListItem = (order) => {
+    const costString = totalCost.toLocaleString("en-US", {
+        style: "currency",
+        currency: "USD"
+    })
     return `<li>
-        Order #${order.id} was placed on ${order.timestamp}
+        Order #${order.id} cost ${costString}
     </li>`
 }
 
@@ -12,7 +19,7 @@ export const Orders = () => {
         the component function for Orders, but not the others?
     */
     const orders = getOrders()
-
+    const totalCost = foundMetal.price
     let html = "<ul>"
 
     const listItems = orders.map(buildOrderListItem)
@@ -22,4 +29,3 @@ export const Orders = () => {
 
     return html
 }
-
